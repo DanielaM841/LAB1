@@ -67,9 +67,11 @@ SUMA1:
 	RET
 OF1:
 	LDI		R18, 0x00 //si es 16 el valor hay of y se hace 0
+	OUT		PORTB, R18
 	RET
 UF1:
 	LDI		R18, 0x0F // 16 para que cuando regrese sea 15
+	OUT		PORTB, R18 
 	RET
 RESTA1:
 	CPI		R18, 0x00
@@ -82,19 +84,21 @@ SUMA2:
 	INC		R20
 	CPI		R20, 0x10 //comparar con 16
 	BREQ	OF2 //si es 16 ejecutar el break 
-	OUT		PORTB, R20 //si no es 16 cargar el valor 
+	OUT		PORTD, R20 //si no es 16 cargar el valor 
 	RET
 OF2:
 	LDI		R20, 0x00 //si es 16 el valor hay of y se hace 0
+	OUT		PORTD, R20 
 	RET
 UF2:
 	LDI		R20, 0x0F // 16 para que cuando regrese sea 15
+	OUT		PORTD, R20 
 	RET
 RESTA2:
 	CPI		R20, 0x00
 	BREQ	UF2 // si es 0 ir a under flow 
 	DEC		R20 // si no es 0 restar y luego dar el resultado
-	OUT		PORTB, R20 
+	OUT		PORTD, R20 
 	RET 
 
 // Sub-rutina 
