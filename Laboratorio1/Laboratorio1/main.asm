@@ -48,13 +48,13 @@ MAIN:
 	BREQ	MAIN
 	// Volver a leer PIND
 	MOV		R17, R16 //copia el estado actual del pin en R17
-	SBRS	R16, 2 // Salta si el bit 2 del PIND es 1 (no apachado)
+	SBRS	R16, 2 // Salta si el bit 2 del PINC es 1 (no apachado)
 	CALL	SUMA1 //si el botón esta presionado suma
-	SBRS	R16, 3 //Si el bit 3 de PIND es 1 (botón NO presionado), salta la siguiente instrucción
+	SBRS	R16, 3 //Si el bit 3 de PINC es 1 (botón NO presionado), salta la siguiente instrucción
 	CALL	RESTA1 // Si el boton 2 está presionado, llama a RESTA
-	SBRS	R16, 4 // Salta si el bit 2 del PIND es 1 (no apachado)
+	SBRS	R16, 4 // Salta si el bit 2 del PINC es 1 (no apachado)
 	CALL	SUMA2 //si el botón esta presionado suma
-	SBRS	R16, 5 //Si el bit 3 de PIND es 1 (botón NO presionado), salta la siguiente instrucción
+	SBRS	R16, 5 //Si el bit 3 de PINC es 1 (botón NO presionado), salta la siguiente instrucción
 	CALL	RESTA2 // Si el boton 2 está presionado, llama a RESTA
 	RJMP	MAIN
 
@@ -70,7 +70,7 @@ OF1:
 	OUT		PORTB, R18
 	RET
 UF1:
-	LDI		R18, 0x0F // 16 para que cuando regrese sea 15
+	LDI		R18, 0x0F // para que cuando regrese sea 15
 	OUT		PORTB, R18 
 	RET
 RESTA1:
